@@ -1,5 +1,21 @@
 # Updated README title name
 
+> This is a sample block quote.
+
+### Test heading
+
+- feature 1
+- feature 2
+
+### example code here
+
+```ruby
+def sampleMethod
+  puts 'example here'
+end
+```
+
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
