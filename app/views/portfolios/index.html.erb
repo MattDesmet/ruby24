@@ -1,0 +1,8 @@
+<h1>Portfolio Index Page</h1>
+
+<% @portfolio_items.each do |any_var_name| %>
+  <p><%= any_var_name.title%></p>
+  <p><%= any_var_name.subtitle%></p>
+  <p><%= any_var_name.body%></p>
+  <%= image_tag any_var_name.thumb_image%>
+  <%end%>

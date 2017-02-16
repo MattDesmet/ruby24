@@ -1,0 +1,39 @@
+<h1> Create NEW Portfolio Item</h1>
+
+<%= form_for(@portfolio_item) do |f| %>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :subtitle %>
+    <%= f.text_field :subtitle %>
+  </div>
+
+  <div class="field">
+    <%= f.label :body %>
+    <%= f.text_area :body %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+
+
+
+
+<!-- <% if blog.errors.any? %>
+<div id="error_explanation">
+<h2><%= pluralize(blog.errors.count, "error") %> prohibited this blog from being saved:</h2>
+
+<ul>
+<% blog.errors.full_messages.each do |message| %>
+<li><%= message %></li>
+<% end %>
+</ul>
+</div>
+<% end %> -->

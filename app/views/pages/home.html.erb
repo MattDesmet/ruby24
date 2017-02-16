@@ -1,0 +1,19 @@
+<h1>Home</h1>
+<p>Find me in app/views/pages/home.html.erb</p>
+
+<h1>DB pull 1</h1>
+<%= @posts.inspect %>
+
+<h1>DB pull 2</h1>
+<%= @blogs.inspect %>
+
+<h1>DB Pull 3</h1>
+<%= @skills.inspect %>
+
+<%= to_query(@skills) do |f| %>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <% end %>

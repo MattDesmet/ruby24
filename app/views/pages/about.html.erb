@@ -1,0 +1,9 @@
+<h1>ABOUT in Pages Route</h1>
+
+<h1>Pulling Data via Routes - Pages Controller</h1>
+
+<%= @blogs.each do |blog| %>
+  <p><%= blog.id %></p>
+  <p><%= blog.title %></p>
+  <p><%= blog.body %></p>
+  <% end %>
