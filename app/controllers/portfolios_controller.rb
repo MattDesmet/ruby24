@@ -1,4 +1,5 @@
 class PortfoliosController < ApplicationController
+
   def index
     @portfolio_items = Portfolio.all
   end
@@ -36,5 +37,14 @@ class PortfoliosController < ApplicationController
     end
   end
 
+  def show
+    get '/portfolio/:id' => 'products#show'
+    # current_user
+    # porfolios@current_folio
+  end
+
+  def current_user
+    @current_folio = Portfolio.find(params[:id])
+  end
 
 end
