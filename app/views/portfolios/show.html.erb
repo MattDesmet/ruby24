@@ -1,0 +1,40 @@
+<%= image_tag @portfolio_item.main_image %>
+
+<h1><%= @portfolio_item.title%></h1>
+
+<style media="screen">
+  .showPage{
+    color: black;
+  }
+  .subtitle{
+    color: steelblue;
+  }
+  .timestamp{
+    color: slategrey;
+    font-size: 80%;
+  }
+</style>
+
+<div class="subtitle">
+  <h3>
+  <%= "Project Subtitle: #{@portfolio_item.subtitle}"%>
+  </h3>
+</div>
+
+<div class="showPage">
+  <%= "Description: #{@portfolio_item.body}"%>
+
+</div>
+<div class="timestamp">
+  <%=  "This project was created at: #{@portfolio_item.created_at.to_s(:short)}"%>
+</div>
+
+<div class="timestamp">
+  <%=  "This project was updated at: #{@portfolio_item.updated_at}"%>
+</div>
+<br>
+<em><%=link_to "Click here to DELETE -- #{@portfolio_item.title}", portfolio_path(@portfolio_item), method: :delete, data: { confirm: "Are you sure you want to delete #{@portfolio_item.title}" } %></em>
+<hr>
+<div >
+  <h3> <%=link_to "Back to Portfolio Page", portfolios_path %> </h3>
+</div>

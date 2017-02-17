@@ -1,7 +1,7 @@
 class PortfoliosController < ApplicationController
 
   def index
-    @portfolio_items = Portfolio.all
+    @portfolio_items = Portfolio.order(:id)
   end
 
   def new
@@ -38,9 +38,18 @@ class PortfoliosController < ApplicationController
   end
 
   def show
-    get '/portfolio/:id' => 'products#show'
-    # current_user
-    # porfolios@current_folio
+    @portfolio_item = Portfolio.find(params[:id])
+  end
+
+  def destroy
+    # @portfolio_item = Portfolio.find(params[:id]).destroy
+    # this call performs the lookup in the DB
+    @portfolio_item = Portfolio.find(params[:id])
+    # this line performs the destroy action in the DB
+    @portfolio_item.destroy
+    respond_to do |format|
+      format.html { redirect_to portfolios_url, notice: 'The record was successfully removed.' }
+    end
   end
 
   def current_user
