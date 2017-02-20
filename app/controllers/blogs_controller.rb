@@ -21,6 +21,12 @@ class BlogsController < ApplicationController
   def edit
   end
 
+  def topics
+    @topics = Topic.first.blogs
+    @specific_topic = Blog.last.topic
+    puts "This is printing OUT:::", @specific_topic
+  end
+
   # POST /blogs
   # POST /blogs.json
   def create

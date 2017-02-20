@@ -1,0 +1,12 @@
+ <h1><%= @specific_topic.title %></h1>
+
+
+    <% @topics.each do |topic| %>
+        <p><%= topic.id %></p>
+        <p><%= topic.title %></p>
+        <p><%= topic.body %></p>
+        <p><%= topic.created_at %></p>
+    <% end %>
+
+
+<br>
