@@ -1,5 +1,6 @@
 class Portfolio < ApplicationRecord
   validates_presence_of :title, :body, :thumb_image, :main_image
+  include Placeholder
 
 # pulls angular items from DB.  can be called on from the controller.
   def self.angular
@@ -16,7 +17,8 @@ class Portfolio < ApplicationRecord
 
     def set_defaults
       self.subtitle ||= 'Angular'
+      #example of using a concern vs hard coding a string for setting the default
       self.main_image ||= "http://placehold.it/600x400"
-      self.thumb_image ||= "http://placehold.it/350x200"
+      self.thumb_image ||= Placeholder.image_generator(height: '350', width: '200')
     end
 end
