@@ -1,7 +1,9 @@
 class Portfolio < ApplicationRecord
   has_many :technologies
-  validates_presence_of :title, :body, :thumb_image, :main_image
+  # allows for use of 
+  accepts_nested_attributes_for :technologies, reject_if: lambda { |attributes| attributes['name'].blank?}
   include Placeholder
+  validates_presence_of :title, :body, :thumb_image, :main_image
 
 # pulls angular items from DB.  can be called on from the controller.
   def self.angular

@@ -8,6 +8,8 @@ class PortfoliosController < ApplicationController
 
   def new
     @portfolio_items = Portfolio.new
+    #allow for nested attributes to be displayed on the view form.
+    3.times { @portfolio_items.technologies.build }
   end
 
 # this method calls on the scope method defined in the Model
@@ -22,7 +24,7 @@ class PortfoliosController < ApplicationController
 
 
   def create
-    @portfolio_item = Portfolio.new(params.require(:portfolio).permit(:title, :subtitle, :body, :thumb_image, :main_image))
+    @portfolio_item = Portfolio.new(params.require(:portfolio).permit(:title, :subtitle, :body, :thumb_image, :main_image, technologies_attributes: [:name]))
 
     respond_to do |format|
       if @portfolio_item.save

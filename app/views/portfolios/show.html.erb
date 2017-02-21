@@ -32,6 +32,12 @@
 <div class="timestamp">
   <%=  "This project was updated at: #{@portfolio_item.updated_at}"%>
 </div>
+<hr>
+<h2>Technologies Used:</h2>
+
+<% @portfolio_item.technologies.each do |t| %>
+<p><%= t.name %></p>
+<% end %>
 <br>
 <em><%=link_to "Click here to DELETE -- #{@portfolio_item.title}", portfolio_path(@portfolio_item), method: :delete, data: { confirm: "Are you sure you want to delete #{@portfolio_item.title}" } %></em>
 <hr>
