@@ -1,0 +1,18 @@
+<h1>Angular Portfolio Index Page</h1>
+
+<div class="">
+  <a href="/portfolios/new">Create New Portfolio Item</a>
+</div>
+
+<hr>
+
+<% @angular_portfolio_items.each do |portfolio_item| %>
+  <p><%= link_to portfolio_item.title, portfolio_show_path(portfolio_item.id)%></p>
+  <p><em><%= portfolio_item.subtitle%></em></p>
+  <p><%= portfolio_item.body%></p>
+  <%= image_tag portfolio_item.thumb_image unless portfolio_item.thumb_image.nil? %>
+  <p>
+  <%= link_to "Edit #{portfolio_item.title}", edit_portfolio_path(portfolio_item.id)%>
+  </p>
+  <hr>
+  <%end%>

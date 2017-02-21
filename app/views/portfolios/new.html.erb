@@ -1,6 +1,7 @@
+<p id="notice"><%= notice %></p>
 <h1> Create NEW Portfolio Item</h1>
 
-<%= form_for(@portfolio_item) do |f| %>
+<%= form_for(@portfolio_items) do |f| %>
 
   <div class="field">
     <%= f.label :title %>
@@ -20,6 +21,11 @@
   <div class="field">
     <%= f.label :thumb_image %>
     <%= f.text_field :thumb_image %>
+  </div>
+
+  <div class="field">
+    <%= f.label :main_image %>
+    <%= f.text_field :main_image %>
   </div>
 
   <div class="actions">

@@ -1,17 +1,28 @@
 class PortfoliosController < ApplicationController
-  validates_presence_of :title, :body, :main_image, :thumb_image
 
   def index
-    @portfolio_items = Portfolio.order(:id)
+    @portfolio_items = Portfolio.angular
+    # @portfolio_items = Portfolio.ruby_on_rails_portfolio_items
+    # @portfolio_items = Portfolio.order(:id)
   end
 
   def new
-    @portfolio_item = Portfolio.new
+    @portfolio_items = Portfolio.new
+  end
+
+# this method calls on the scope method defined in the Model
+  def scope_portfolio_item
+    @scope_portfolio_items = Portfolio.ruby_on_rails_portfolio_items
+  end
+
+# this instance variable is calling on the self.angular method inside the Model
+  def angular_portfolio_item
+    @angular_portfolio_items = Portfolio.angular
   end
 
 
   def create
-    @portfolio_item = Portfolio.new(params.require(:portfolio).permit(:title, :subtitle, :body, :thumb_image))
+    @portfolio_item = Portfolio.new(params.require(:portfolio).permit(:title, :subtitle, :body, :thumb_image, :main_image))
 
     respond_to do |format|
       if @portfolio_item.save
