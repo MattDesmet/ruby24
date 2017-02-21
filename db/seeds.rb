@@ -59,3 +59,13 @@ end
 end
 
 puts "9 portfolio items created"
+
+# example of syntax creating a tech item associated with a Portfolio using one line instead of (2)
+# the command grabs the last portfolio item to start with then calls the create on it.
+3.times do |technology_item|
+  Portfolio.last.technologies.create!(
+    name: "TechSkill #{technology_item}",
+    #portfolio_id: Portfolio.last.id
+  )
+end
+puts "3 technology items created"
