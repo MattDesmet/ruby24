@@ -7,9 +7,9 @@
 <div class="container-fluid">
 
 
-
+<!-- displays the first name of user IF they are logged in -->
 <div class="container">
-  <h1>Hi <%= current_user.first_name if current_user%></h1>
+  <h1>Hi, <%= current_user.first_name if current_user%></h1>
 </div>
 
 
@@ -19,10 +19,11 @@
 </div>
 
 <h1>DB pull 2</h1>
-<%= @blogs.inspect %>
+<%= "This is the title of the first blog: #{@blogs.first.title}" %>
 
 <h1>DB Pull 3</h1>
-<%= @skills.inspect %>
+<%= @skills.first.title %>
+<%= @skills.first.percent_utilized %>
 
 <%= to_query(@skills) do |f| %>
 

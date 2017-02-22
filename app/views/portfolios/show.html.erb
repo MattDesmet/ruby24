@@ -1,8 +1,12 @@
-<%= image_tag @portfolio_item.main_image %>
+<div class="container-fluid">
+  <%= image_tag @portfolio_item.main_image %>
+</div>
+<div class="container-fluid">
+  <h1><%= @portfolio_item.title%></h1>
+</div>
 
-<h1><%= @portfolio_item.title%></h1>
 
-<style media="screen">
+<style >
   .showPage{
     color: black;
   }
@@ -33,7 +37,7 @@
   <%=  "This project was updated at: #{@portfolio_item.updated_at}"%>
 </div>
 <hr>
-<h2>Technologies Used:</h2>
+<h4>Technologies Used:</h4>
 
 <% @portfolio_item.technologies.each do |t| %>
 <p><%= t.name %></p>
@@ -44,3 +48,4 @@
 <div >
   <h3> <%=link_to "Back to Portfolio Page", portfolios_path %> </h3>
 </div>
+<hr>
